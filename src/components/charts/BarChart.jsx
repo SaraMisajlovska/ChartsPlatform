@@ -12,7 +12,7 @@ ChartJS.register(
   Legend
 );
 
-const BarChart = ({data}) => {
+const BarChart = ({data, legendPosition}) => {
   const chartData = {
     labels: data.map((item) => item.timestamp), // Labels for the x-axis
     datasets: [
@@ -32,7 +32,7 @@ const BarChart = ({data}) => {
   const options = {
     responsive: true,
     plugins: {
-      legend: {position: 'top'},
+      legend: {position: legendPosition},
       title: {display: true, text: 'User Actions: Add to Cart vs Cart Abandonment'},
     },
     scales: {

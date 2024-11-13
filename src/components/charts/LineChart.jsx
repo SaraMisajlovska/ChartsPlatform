@@ -1,34 +1,9 @@
-import {
-  CategoryScale,
-  Chart as ChartJS,
-  defaults,
-  Legend,
-  LinearScale,
-  LineElement,
-  PointElement,
-  Title,
-  Tooltip,
-  Filler
-} from 'chart.js';
 import {Line} from 'react-chartjs-2';
 import {hexToRgbaWithAlpha} from "../../assets/CommonConstants.js";
 import {cyan, gold, magenta} from "@ant-design/colors";
 
-// Register necessary components
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-);
-//  { timestamp: '2024-11-01', views: 150, addToCart: 30, cartAbandon: 20, searchQueries: 25 },
 const LineChart = ({data, legendPosition='top'}) => {
 
-  defaults.maintainAspectRatio = false;
   const chartData = {
     labels: data.map((item) => item.timestamp), // Assuming `timestamp` in readable format
     datasets: [

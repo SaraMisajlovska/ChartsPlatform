@@ -1,6 +1,7 @@
 import {Layout, Menu} from "antd";
 import {BarChartOutlined} from "@ant-design/icons";
 import React from "react";
+import {siderStyle} from "/src/assets/CommonConstants.js";
 
 const { Sider} = Layout;
 
@@ -13,16 +14,6 @@ const items = [
   icon: React.createElement(icon),
   label: `Store ${index + 1}`,
 }));
-const siderStyle = {
-  // overflow: 'auto',
-  height: 'auto',
-  position: 'fixed',
-  insetInlineStart: 0,
-  top: 0,
-  bottom: 0,
-  scrollbarWidth: 'thin',
-  scrollbarGutter: 'stable',
-};
 
 const SideMenu = ({collapsed}) => {
 

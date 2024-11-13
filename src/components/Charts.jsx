@@ -45,12 +45,12 @@ const Charts = () => {
       >
         <Row gutter={[24, 32]} className={'row-style'}>
           <Col span={24} className={'col-style'}>
-            <LineChart data={activityData} legendPosition={'left'}/>
+              <LineChart data={activityData} legendPosition={'left'}/>
           </Col>
         </Row>
         <Row gutter={[24, 32]} className={'row-style'} justify={'space-between'}>
           <Col span={11} className={'col-style'}>
-            <BarChart data={activityData} legendPosition={'right'}/>
+            <BarChart data={activityData} legendPosition={'left'}/>
           </Col>
 
           <Col span={11} className={'col-style'}>
