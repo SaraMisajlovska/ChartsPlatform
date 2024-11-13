@@ -1,9 +1,9 @@
 import {Col, Layout, Row, theme} from "antd";
 import React from "react";
-import LineChart from "./charts/LineChart.jsx";
-import BarChart from "./charts/BarChart.jsx";
-import DoughnutChart from "./charts/DoughnutChart.jsx";
-import AreaChart from "./charts/AreaChart.jsx";
+import LineChart from "/src/components/charts/LineChart.jsx";
+import BarChart from "/src/components/charts/BarChart.jsx";
+import DoughnutChart from "/src/components/charts/DoughnutChart.jsx";
+import AreaChart from "/src/components/charts/AreaChart.jsx";
 
 const {Content} = Layout;
 

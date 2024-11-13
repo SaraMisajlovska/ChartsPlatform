@@ -9,7 +9,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import {Line} from 'react-chartjs-2';
-import {hexToRgbaWithAlpha} from "../../assets/CommonConstants.js";
+import {hexToRgbaWithAlpha} from "/src/assets/CommonConstants.js";
 import {geekblue, gold, magenta} from "@ant-design/colors";
 
 ChartJS.register(

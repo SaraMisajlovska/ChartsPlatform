@@ -1,6 +1,6 @@
 import {BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip,} from 'chart.js';
 import {Bar} from 'react-chartjs-2';
-import {hexToRgbaWithAlpha} from "../../assets/CommonConstants.js";
+import {hexToRgbaWithAlpha} from "/src/assets/CommonConstants.js";
 import {cyan, volcano} from "@ant-design/colors";
 
 ChartJS.register(

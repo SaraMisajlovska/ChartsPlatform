@@ -1,7 +1,7 @@
 import {ArcElement, Chart as ChartJS, Colors, Legend, Tooltip,} from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
 import {cyan, geekblue, gold, magenta} from "@ant-design/colors";
-import {hexToRgbaWithAlpha} from "../../assets/CommonConstants.js";
+import {hexToRgbaWithAlpha} from "/src/assets/CommonConstants.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors);
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Layout} from 'antd';
-import SideMenu from "./SideMenu.jsx";
-import MainContent from "./MainContent.jsx";
+import SideMenu from "/src/components/SideMenu.jsx";
+import MainContent from "/src/components/MainContent.jsx";
 import {
   CategoryScale,
   Chart as ChartJS,
