@@ -13,3 +13,10 @@
 .col-style:hover{
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
