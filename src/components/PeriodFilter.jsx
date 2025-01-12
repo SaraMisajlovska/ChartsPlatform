@@ -10,6 +10,7 @@ const PeriodFilter = (props) => {
     setType,
     setPeriod
   } = props;
+
   const availableTypes = [
     {name: 'Date', value: 'date'},
     {name: 'Month', value: 'month'},
