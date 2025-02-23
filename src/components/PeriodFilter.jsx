@@ -39,8 +39,7 @@ const PeriodFilter = (props) => {
       default:
         formattedValue = value;
     }
-    console.log({formattedValue});
-    setPeriod(formattedValue);
+    setPeriod(new Date(formattedValue));
   }
 
   const handleTypeChange = (type) => {

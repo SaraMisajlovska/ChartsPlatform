@@ -3,17 +3,19 @@ export const fetchTopWords = (limit = 5, fromDate, toDate) =>
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json"
+      Accept: "application/json",
     },
-    body: JSON.stringify({limit, fromDate, toDate}) // Include the request body
+    body: JSON.stringify({ limit, fromDate, toDate }), // Include the request body
   })
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        console.error(`HTTP error! Status: ${response.status}`);
+        return [];
       }
       return response.json();
     })
-    .then(data => data)
-    .catch(error => {
+    .then((data) => data)
+    .catch((error) => {
       console.error("Error fetching top words:", error);
+      return [];
     });

@@ -5,7 +5,7 @@ import {hexToRgbaWithAlpha} from "/src/assets/CommonConstants.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors);
 
-const DoughnutChart = ({data, legendPosition = 'top', filterType}) => {
+const WordFrequenciesChart = ({data, legendPosition = 'top', filterType}) => {
 
   const chartData = {
     labels: Object.keys(data),
@@ -25,7 +25,7 @@ const DoughnutChart = ({data, legendPosition = 'top', filterType}) => {
     ],
   };
   const titleText = filterType === 'date'
-    ? `Top searched words on day`
+    ? `Top searched words`
     : `Top searched words over the last ${filterType}`;
 
   const options = {
@@ -41,4 +41,4 @@ const DoughnutChart = ({data, legendPosition = 'top', filterType}) => {
   );
 };
 
-export default DoughnutChart;
+export default WordFrequenciesChart;
