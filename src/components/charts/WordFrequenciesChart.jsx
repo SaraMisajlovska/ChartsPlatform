@@ -1,6 +1,6 @@
 import {ArcElement, Chart as ChartJS, Colors, Legend, Tooltip,} from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
-import {cyan, geekblue, gold, magenta, purpleDark} from "@ant-design/colors";
+import {cyan, geekblue, magenta, orange, purpleDark} from "@ant-design/colors";
 import {hexToRgbaWithAlpha} from "/src/assets/CommonConstants.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors);
@@ -14,11 +14,11 @@ const WordFrequenciesChart = ({data, legendPosition = 'top', filterType}) => {
         label: 'Word Frequencies',
         data: Object.values(data),
         backgroundColor: [
-          hexToRgbaWithAlpha(magenta[4]),
-          hexToRgbaWithAlpha(cyan[4]),
-          hexToRgbaWithAlpha(gold[4]),
-          hexToRgbaWithAlpha(geekblue[4]),
-          hexToRgbaWithAlpha(purpleDark[4])
+          hexToRgbaWithAlpha(magenta[6]),
+          hexToRgbaWithAlpha(cyan[6]),
+          hexToRgbaWithAlpha(orange[6]),
+          hexToRgbaWithAlpha(geekblue[6]),
+          hexToRgbaWithAlpha(purpleDark[6])
         ],
         hoverOffset: 4,
       },
