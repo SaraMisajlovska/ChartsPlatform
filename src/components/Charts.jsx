@@ -1,51 +1,14 @@
 import { Col, Layout, Row, Spin, theme } from "antd";
 import React from "react";
-import LineChart from "/src/components/charts/LineChart.jsx";
 import WordFrequenciesChart from "/src/components/charts/WordFrequenciesChart.jsx";
-import AreaChart from "/src/components/charts/AreaChart.jsx";
 import CheckoutAbandonmentChart from "/src/components/charts/CheckoutAbandonmentChart.jsx";
 import useTopWords from "/src/components/hooks/useTopWords.js";
-import useAbandonedReasons from "/src/components/hooks/useAbandonedReasons.js";
+import useFetchDataWithTimePeriod from "/src/components/hooks/useFetchDataWithTimePeriod.js";
+import { fetchProductViews } from "/src/services/ProductViewService.js";
+import { fetchAbandonedReasonsAndProducts } from "/src/services/CheckoutAbandonmentService.js";
+import ViewsPerCategoryChart from "/src/components/charts/ViewsPerCategoryChart.jsx";
 
 const { Content } = Layout;
-const activityData = [
-  {
-    timestamp: "2024-11-01",
-    views: 150,
-    addToCart: 30,
-    cartAbandon: 20,
-    searchQueries: 25,
-  },
-  {
-    timestamp: "2024-11-02",
-    views: 180,
-    addToCart: 40,
-    cartAbandon: 25,
-    searchQueries: 35,
-  },
-  {
-    timestamp: "2024-11-03",
-    views: 200,
-    addToCart: 50,
-    cartAbandon: 30,
-    searchQueries: 70,
-  },
-  {
-    timestamp: "2024-11-01",
-    views: 150,
-    addToCart: 30,
-    cartAbandon: 20,
-    searchQueries: 50,
-  },
-  {
-    timestamp: "2024-11-02",
-    views: 180,
-    addToCart: 40,
-    cartAbandon: 25,
-    searchQueries: 60,
-  },
-  // Add more data...
-];
 
 const Charts = (props) => {
   const {
@@ -57,8 +20,15 @@ const Charts = (props) => {
     fromDate,
     toDate,
   );
-  const { abandonedReasonsAndProducts, loading: abandonedLoading } =
-    useAbandonedReasons(fromDate, toDate, filterType);
+  const { data: abandonedReasonsAndProducts, loading: abandonedLoading } =
+    useFetchDataWithTimePeriod(
+      fromDate,
+      toDate,
+      filterType,
+      fetchAbandonedReasonsAndProducts,
+    );
+  const { data: productViews, loading: productLoading } =
+    useFetchDataWithTimePeriod(fromDate, toDate, filterType, fetchProductViews);
 
   return (
     <Content
@@ -95,14 +65,10 @@ const Charts = (props) => {
           justify={"space-between"}
         >
           <Col span={11} className={"col-style"}>
-            <AreaChart data={activityData} legendPosition={"left"} />
-          </Col>
-
-          <Col span={11} className={"col-style"}>
             {!frequenciesLoading ? (
               <WordFrequenciesChart
                 data={topWords}
-                legendPosition={"right"}
+                legendPosition={"left"}
                 filterType={filterType}
               />
             ) : (
@@ -111,10 +77,14 @@ const Charts = (props) => {
               </div>
             )}
           </Col>
-        </Row>
-        <Row gutter={[24, 32]} className={"row-style"}>
-          <Col span={24} className={"col-style"}>
-            <LineChart data={activityData} legendPosition={"left"} />
+          <Col span={11} className={"col-style"}>
+            {!productLoading ? (
+              <ViewsPerCategoryChart data={productViews} legendPosition={"left"} />
+            ) : (
+              <div className="spinner-wrapper">
+                <Spin />
+              </div>
+            )}
           </Col>
         </Row>
       </div>

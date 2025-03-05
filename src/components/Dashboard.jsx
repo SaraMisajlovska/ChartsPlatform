@@ -26,11 +26,12 @@ ChartJS.register(
   Legend,
   Filler
 );
+
 //Applies to all charts
 defaults.maintainAspectRatio = false;
 
 const Dashboard = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   return (
     <Layout style={{margin: '-10px'}}>
